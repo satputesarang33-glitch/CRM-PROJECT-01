@@ -1,0 +1,31 @@
+/* Users.css */
+
+.users-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.user-profile-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-full-name {
+  font-weight: 700;
+  color: var(--text-main);
+  display: block;
+}
+
+.user-department {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.user-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}

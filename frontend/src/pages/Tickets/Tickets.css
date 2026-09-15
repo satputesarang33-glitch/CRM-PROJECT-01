@@ -1,0 +1,49 @@
+/* Tickets.css */
+
+.tickets-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ticket-badge-id {
+  font-family: monospace;
+  font-weight: 800;
+  color: var(--primary);
+  background-color: var(--primary-light);
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+}
+
+.ticket-subject-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  max-width: 320px;
+}
+
+.ticket-subject-text {
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.ticket-desc-snippet {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.action-icon-btn.resolve:hover {
+  color: var(--success);
+  background-color: var(--success-bg);
+}
+
+.ticket-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}

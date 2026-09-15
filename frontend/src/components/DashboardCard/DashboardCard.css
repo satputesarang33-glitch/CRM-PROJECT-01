@@ -1,0 +1,133 @@
+/* DashboardCard.css */
+
+.dashboard-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.clickable-card {
+  cursor: pointer;
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.card-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.card-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.card-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+/* Card color schemes */
+.card-color-primary .card-icon-wrap {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.card-color-success .card-icon-wrap {
+  background-color: var(--success-bg);
+  color: var(--success);
+}
+
+.card-color-warning .card-icon-wrap {
+  background-color: var(--warning-bg);
+  color: var(--warning);
+}
+
+.card-color-danger .card-icon-wrap {
+  background-color: var(--danger-bg);
+  color: var(--danger);
+}
+
+.card-color-info .card-icon-wrap {
+  background-color: var(--info-bg);
+  color: var(--info);
+}
+
+.card-color-purple .card-icon-wrap {
+  background-color: var(--purple-bg);
+  color: var(--purple);
+}
+
+.card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.775rem;
+}
+
+.card-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
+.card-trend.trend-up {
+  background-color: var(--success-bg);
+  color: var(--success);
+}
+
+.card-trend.trend-down {
+  background-color: var(--danger-bg);
+  color: var(--danger);
+}
+
+.card-trend.trend-neutral {
+  background-color: var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.card-trend-label,
+.card-subtitle {
+  color: var(--text-muted);
+}

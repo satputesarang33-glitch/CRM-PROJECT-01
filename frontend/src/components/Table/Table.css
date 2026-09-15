@@ -1,0 +1,97 @@
+/* Table.css */
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.custom-table thead {
+  background-color: var(--border-subtle);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.custom-table th {
+  padding: 0.875rem 1.25rem;
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.custom-table th.is-sortable {
+  cursor: pointer;
+}
+
+.custom-table th.is-sortable:hover {
+  color: var(--text-main);
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.th-content {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sort-icons {
+  display: inline-flex;
+  font-size: 0.85rem;
+}
+
+.sort-icon.active {
+  color: var(--primary);
+}
+
+.sort-icon.inactive {
+  color: var(--text-muted);
+  opacity: 0.4;
+}
+
+.custom-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.15s ease;
+}
+
+.custom-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.custom-table tbody tr:hover {
+  background-color: var(--table-hover);
+}
+
+.custom-table td {
+  padding: 1rem 1.25rem;
+  color: var(--text-main);
+  vertical-align: middle;
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+
+.table-loading-cell,
+.table-empty-cell {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.empty-message-wrap {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}

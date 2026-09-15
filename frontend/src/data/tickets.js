@@ -1,0 +1,67 @@
+/**
+ * tickets.js
+ * Mock dataset of customer support tickets
+ */
+
+export const initialTickets = [
+  {
+    id: 'TCK-1001',
+    customer: 'Apex Global Logistics',
+    customerId: 'cust-1',
+    subject: 'Webhook payload delivery latency over 500ms',
+    description: 'Our dispatch center experienced delayed webhook events during peak shipment windows yesterday.',
+    priority: 'High',
+    status: 'In Progress',
+    assignedAgent: 'Elena Rostova',
+    createdDate: '2024-07-02',
+    updatedDate: '2024-07-03',
+  },
+  {
+    id: 'TCK-1002',
+    customer: 'Strata Financial Systems',
+    customerId: 'cust-2',
+    subject: 'Request for custom IP whitelist for Dublin datacenter',
+    description: 'Need additional IPv4 and IPv6 CIDR blocks whitelisted for European staging environment.',
+    priority: 'Medium',
+    status: 'Open',
+    assignedAgent: 'Elena Rostova',
+    createdDate: '2024-07-04',
+    updatedDate: '2024-07-04',
+  },
+  {
+    id: 'TCK-1003',
+    customer: 'Nordic Pulse Media',
+    customerId: 'cust-3',
+    subject: 'CSV export timeout on report queries over 100k rows',
+    description: 'When running the custom annual engagement report, browser times out after 60 seconds.',
+    priority: 'Medium',
+    status: 'Resolved',
+    assignedAgent: 'Elena Rostova',
+    createdDate: '2024-06-20',
+    updatedDate: '2024-06-22',
+  },
+  {
+    id: 'TCK-1004',
+    customer: 'Zenith AI Research',
+    customerId: 'cust-5',
+    subject: 'Inquiry regarding SAML 2.0 Okta SSO provisioning',
+    description: 'Looking for setup guide and certificate signing keys for enterprise Okta integration.',
+    priority: 'Low',
+    status: 'Closed',
+    assignedAgent: 'Alex Morgan',
+    createdDate: '2024-06-15',
+    updatedDate: '2024-06-18',
+  },
+  {
+    id: 'TCK-1005',
+    customer: 'Lumina Health Technologies',
+    customerId: 'cust-4',
+    subject: 'Emergency: Intermittent 503 error on audit trail export',
+    description: 'Compliance auditor is on-site and the audit logging endpoint returned temporary error.',
+    priority: 'High',
+    status: 'In Progress',
+    assignedAgent: 'Elena Rostova',
+    createdDate: '2024-07-05',
+    updatedDate: '2024-07-05',
+  },
+];

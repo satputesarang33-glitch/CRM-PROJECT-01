@@ -1,0 +1,41 @@
+/* Leads.css */
+
+.leads-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.lead-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lead-name-text {
+  font-weight: 700;
+  color: var(--text-main);
+  display: block;
+}
+
+.lead-company-text {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.expected-val-text {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.action-icon-btn.convert:hover {
+  color: var(--success);
+  background-color: var(--success-bg);
+}
+
+.lead-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}

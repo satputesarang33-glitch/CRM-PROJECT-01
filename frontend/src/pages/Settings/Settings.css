@@ -1,0 +1,266 @@
+/* Settings.css */
+
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.settings-layout-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.settings-nav-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.85rem;
+}
+
+.settings-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  text-align: left;
+  width: 100%;
+}
+
+.settings-nav-btn:hover {
+  background-color: var(--border-subtle);
+  color: var(--text-main);
+}
+
+.settings-nav-btn.active {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.settings-content-card {
+  padding: 2rem;
+}
+
+.settings-section-header {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.section-desc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.settings-submit-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+/* Theme Picker Cards */
+.theme-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.theme-picker-card {
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.theme-picker-card:hover {
+  border-color: var(--primary-500);
+}
+
+.theme-picker-card.selected {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.18);
+}
+
+.theme-preview-box {
+  height: 120px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-preview {
+  background-color: #f8fafc;
+}
+
+.light-preview .preview-nav {
+  height: 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.light-preview .preview-body {
+  display: flex;
+  flex: 1;
+}
+
+.light-preview .preview-sidebar {
+  width: 35px;
+  background-color: #0f172a;
+}
+
+.light-preview .preview-content {
+  flex: 1;
+  background-color: #f1f5f9;
+}
+
+.dark-preview {
+  background-color: #0b0f19;
+}
+
+.dark-preview .preview-nav {
+  height: 20px;
+  background-color: #111827;
+  border-bottom: 1px solid #1f2937;
+}
+
+.dark-preview .preview-body {
+  display: flex;
+  flex: 1;
+}
+
+.dark-preview .preview-sidebar {
+  width: 35px;
+  background-color: #0b0f19;
+}
+
+.dark-preview .preview-content {
+  flex: 1;
+  background-color: #1a2234;
+}
+
+.theme-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.85rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text-main);
+}
+
+.check-icon {
+  color: var(--primary);
+  font-size: 1.15rem;
+}
+
+/* Switches & Toggles */
+.toggles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+  gap: 1rem;
+}
+
+.toggle-row:last-child {
+  border-bottom: none;
+}
+
+.toggle-title {
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.toggle-desc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+/* Custom switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--border-color);
+  transition: 0.3s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+@media (max-width: 840px) {
+  .settings-layout-grid {
+    grid-template-columns: 1fr;
+  }
+  .theme-options-grid {
+    grid-template-columns: 1fr;
+  }
+}

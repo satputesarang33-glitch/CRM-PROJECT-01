@@ -1,0 +1,131 @@
+/* Customers.css */
+
+.customers-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filter-bar-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+}
+
+.filter-controls-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.customer-cell-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.customer-name-link {
+  font-weight: 700;
+  color: var(--text-main);
+  display: block;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.customer-name-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.customer-job {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.contact-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact-line {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.contact-icon {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.table-actions-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.action-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.action-icon-btn:hover {
+  background-color: var(--border-subtle);
+  color: var(--text-main);
+}
+
+.action-icon-btn.view:hover {
+  color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.action-icon-btn.edit:hover {
+  color: var(--warning);
+  background-color: var(--warning-bg);
+}
+
+.action-icon-btn.delete:hover {
+  color: var(--danger);
+  background-color: var(--danger-bg);
+}
+
+/* Modal Form Grids */
+.customer-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .form-grid-2,
+  .form-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,73 @@
+/**
+ * tasks.js
+ * Mock dataset of CRM tasks and action items
+ */
+
+export const initialTasks = [
+  {
+    id: 'task-1',
+    title: 'Prepare Custom Enterprise SLA Document',
+    description: 'Draft the tiered response SLA clauses requested by Apex Global legal team.',
+    assignedUser: 'David Chen',
+    customer: 'Apex Global Logistics',
+    customerId: 'cust-1',
+    priority: 'High',
+    status: 'In Progress',
+    dueDate: '2024-07-15',
+  },
+  {
+    id: 'task-2',
+    title: 'Schedule Security Architecture Review',
+    description: 'Coordinate with CTO Amara Okafor for quarterly cloud security audit.',
+    assignedUser: 'Sarah Jenkins',
+    customer: 'Strata Financial Systems',
+    customerId: 'cust-2',
+    priority: 'High',
+    status: 'Pending',
+    dueDate: '2024-07-18',
+  },
+  {
+    id: 'task-3',
+    title: 'Send Nordic Localization Demo Deck',
+    description: 'Translate slide deck highlights into German for the regional management team.',
+    assignedUser: 'David Chen',
+    customer: 'Nordic Pulse Media',
+    customerId: 'cust-3',
+    priority: 'Medium',
+    status: 'Completed',
+    dueDate: '2024-06-28',
+  },
+  {
+    id: 'task-4',
+    title: 'Verify EU GDPR Telemetry Compliance',
+    description: 'Ensure anonymized patient data fields adhere to EU Regulation 2016/679.',
+    assignedUser: 'Marcus Vance',
+    customer: 'Lumina Health Technologies',
+    customerId: 'cust-4',
+    priority: 'High',
+    status: 'In Progress',
+    dueDate: '2024-07-22',
+  },
+  {
+    id: 'task-5',
+    title: 'Follow-up on Proposal Feedback',
+    description: 'Call Sophia Patel regarding Q3 cloud implementation milestone timeline.',
+    assignedUser: 'Marcus Vance',
+    customer: 'Cloud Horizon Systems',
+    customerId: 'cust-5',
+    priority: 'Medium',
+    status: 'Pending',
+    dueDate: '2024-07-25',
+  },
+  {
+    id: 'task-6',
+    title: 'Review Solar Pulse Offboarding Report',
+    description: 'Log lessons learned from lost deal and schedule quarterly vendor feedback loop.',
+    assignedUser: 'Sarah Jenkins',
+    customer: 'Solar Pulse Renewables',
+    customerId: 'cust-6',
+    priority: 'Low',
+    status: 'Completed',
+    dueDate: '2024-05-30',
+  },
+];
