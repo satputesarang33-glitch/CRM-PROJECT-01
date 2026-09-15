@@ -18,25 +18,48 @@ export const getMyNotifications = async (req, res, next) => {
 
     let query = db
       .collection("notifications")
-      .where("userId", "in", [req.user.uid, "ALL"])
-      .orderBy("createdAt", "desc");
+      .where("userId", "in", [req.user.uid, "ALL"]);
 
     if (unreadOnly === "true") {
       query = query.where("isRead", "==", false);
     }
 
-    const result = await paginateQuery(query, db.collection("notifications"), {
-      limit,
-      cursor,
-    });
+    try {
+      const orderedQuery = query.orderBy("createdAt", "desc");
+      const result = await paginateQuery(orderedQuery, db.collection("notifications"), {
+        limit,
+        cursor,
+      });
 
-    return successResponse(
-      res,
-      200,
-      "Notifications fetched successfully",
-      result.data,
-      result.pagination
-    );
+      return successResponse(
+        res,
+        200,
+        "Notifications fetched successfully",
+        result.data,
+        result.pagination
+      );
+    } catch (queryErr) {
+      if (queryErr.message?.includes("requires an index") || queryErr.code === 9) {
+        console.warn("⚠️ Firestore index missing for notifications, sorting in memory fallback.");
+        const snapshot = await query.limit(Number(limit) || 20).get();
+        const notifications = snapshot.docs
+          .map((doc) => ({ id: doc.id, ...doc.data() }))
+          .sort((a, b) => {
+            const timeA = a.createdAt?._seconds || new Date(a.createdAt || 0).getTime();
+            const timeB = b.createdAt?._seconds || new Date(b.createdAt || 0).getTime();
+            return timeB - timeA;
+          });
+
+        return successResponse(
+          res,
+          200,
+          "Notifications fetched successfully",
+          notifications,
+          { total: notifications.length, limit: Number(limit) || 20, hasMore: false }
+        );
+      }
+      throw queryErr;
+    }
   } catch (error) {
     next(error);
   }
