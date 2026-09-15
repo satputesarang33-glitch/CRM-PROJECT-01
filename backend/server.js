@@ -57,14 +57,17 @@ app.use(
         "http://127.0.0.1:5173",
       ];
 
-      if (allowedOrigins.includes(origin) || process.env.NODE_ENV !== "production") {
+      if (
+        allowedOrigins.includes(origin) ||
+        process.env.NODE_ENV !== "production"
+      ) {
         return callback(null, true);
       }
 
       return callback(new Error("CORS policy: Access denied for this origin."));
     },
     credentials: true,
-  })
+  }),
 );
 
 // Body parsers
@@ -80,19 +83,29 @@ app.get("/api/health", (req, res) => {
 });
 
 // File upload endpoint (Profile images, attachments, customer docs)
-app.post("/api/upload", protect, upload.single("file"), async (req, res, next) => {
-  try {
-    if (!req.file) {
-      return errorResponse(res, 400, "No file provided for upload.");
-    }
-    const folder = req.body.folder || req.query.folder || "general";
-    const uploadResult = await uploadFile(req.file, folder);
+app.post(
+  "/api/upload",
+  protect,
+  upload.single("file"),
+  async (req, res, next) => {
+    try {
+      if (!req.file) {
+        return errorResponse(res, 400, "No file provided for upload.");
+      }
+      const folder = req.body.folder || req.query.folder || "general";
+      const uploadResult = await uploadFile(req.file, folder);
 
-    return successResponse(res, 201, "File uploaded successfully", uploadResult);
-  } catch (error) {
-    next(error);
-  }
-});
+      return successResponse(
+        res,
+        201,
+        "File uploaded successfully",
+        uploadResult,
+      );
+    } catch (error) {
+      next(error);
+    }
+  },
+);
 
 // API domain routes
 app.use("/api/auth", authRoutes);
@@ -121,7 +134,9 @@ if (process.env.NODE_ENV !== "test") {
 
   server.on("error", (error) => {
     if (error.code === "EADDRINUSE") {
-      console.error(`❌ Port ${PORT} is already in use by another process. Please close it first.`);
+      console.error(
+        `❌ Port ${PORT} is already in use by another process. Please close it first.`,
+      );
     } else {
       console.error(`❌ Server error:`, error.message);
     }

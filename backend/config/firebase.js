@@ -40,10 +40,16 @@ function getServiceAccount() {
     process.env.FIREBASE_CLIENT_EMAIL &&
     process.env.FIREBASE_PRIVATE_KEY
   ) {
+    let cleanKey = process.env.FIREBASE_PRIVATE_KEY.trim();
+    if (cleanKey.startsWith('"') && cleanKey.endsWith('"')) {
+      cleanKey = cleanKey.slice(1, -1);
+    }
+    cleanKey = cleanKey.replace(/,$/, "").replace(/\\n/g, "\n");
+
     return {
-      projectId: process.env.FIREBASE_PROJECT_ID,
-      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+      projectId: process.env.FIREBASE_PROJECT_ID.trim(),
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL.trim().replace(/,$/, ""),
+      privateKey: cleanKey,
     };
   }
 
