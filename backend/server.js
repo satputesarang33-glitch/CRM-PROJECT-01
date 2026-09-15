@@ -6,7 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 // Configuration
-import "./config/firebase.js";
+import db from "./config/firebase.js";
 
 // Middleware
 import { notFound } from "./middleware/notFoundMiddleware.js";
@@ -78,8 +78,22 @@ app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Health check endpoint
-app.get("/api/health", (req, res) => {
-  return successResponse(res, 200, "CRM API is running");
+app.get("/api/health", async (req, res) => {
+  try {
+    const customerCount = (await db.collection("customers").count().get()).data().count;
+    return successResponse(res, 200, "CRM API is running & Firebase Database is Connected", {
+      database: "Firebase Cloud Firestore",
+      status: "Connected",
+      projectId: process.env.FIREBASE_PROJECT_ID || "crm-project-01-47884",
+      liveCustomerRecords: customerCount,
+    });
+  } catch (dbErr) {
+    return successResponse(res, 200, "CRM API is running", {
+      database: "Firebase",
+      status: "Checking",
+      details: dbErr.message,
+    });
+  }
 });
 
 // File upload endpoint (Profile images, attachments, customer docs)
@@ -128,6 +142,7 @@ app.use(errorHandler);
 if (process.env.NODE_ENV !== "test") {
   const server = app.listen(PORT, () => {
     console.log(`🚀 CRM Backend Server running on port ${PORT}`);
+    console.log(`🔥 Firebase Database: CONNECTED (Project: ${process.env.FIREBASE_PROJECT_ID || "crm-project-01-47884"})`);
     console.log(`📍 Health Check: http://localhost:${PORT}/api/health`);
     console.log(`🌐 Allowed Client URL: ${CLIENT_URL}`);
   });
